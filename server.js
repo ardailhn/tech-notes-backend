@@ -28,6 +28,7 @@ app.use(cookieParser());
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/', await import('./routes/root.js').then(m => m.default));
+app.use('/auth', await import('./routes/authRoutes.js').then(m => m.default));
 app.use('/users', await import('./routes/userRoutes.js').then(m => m.default));
 app.use('/notes', await import('./routes/noteRoutes.js').then(m => m.default));
 
